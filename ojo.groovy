@@ -24,4 +24,5 @@ swing.edt {
     def checkProps = button(text:'Check properties', actionPerformed: {def props = "curl ${baseURL}${input.text}?properties".execute().text; println props; output.text="<html>Searching OJO for properties on path: ${input.text}<br><br>${props}<html>"}, constraints:BL.EAST)
     widget(panel())
   }
+  
 }
