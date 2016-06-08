@@ -2,7 +2,7 @@ import groovy.swing.SwingBuilder
 import java.awt.BorderLayout as BL
 
 //@authored by Itamar Berman-Eshel
-//A simple tool to check if a path in the oss-snapshot-local repository  on ojo exists and which properties it contains
+//A simple tool to check if a path in the oss-snapshot-local repository on oss.jfrog.org exists and which properties it contains
 //Run this by executing 'groovy ojo.groovy'
 def swing = new SwingBuilder()
 def panel = {
