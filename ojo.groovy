@@ -16,7 +16,7 @@ swing.edt {
 	//def password = "your password (if needed)"
 	def baseURL = "http://oss.jfrog.org/artifactory/api/storage/oss-snapshot-local/"
 
-  frame(title: 'OJO path checker', size: [800, 200], show: true) {
+  frame(title: 'OJO path checker', size: [800, 200], show: true,defaultCloseOperation:javax.swing.WindowConstants.EXIT_ON_CLOSE) {
     borderLayout()
     def input = textField(columns:10, actionPerformed: {}, constraints:BL.NORTH)
     def output = label(text: '', preferredSize: [100, 100], constraints: BL.SOUTH)
