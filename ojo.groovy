@@ -1,10 +1,12 @@
 import groovy.swing.SwingBuilder
 import java.awt.BorderLayout as BL
-
+import java.awt.event.KeyEvent 
+import java.awt.event.KeyListener
 //@authored by Itamar Berman-Eshel
 //A simple tool to check if a path in the oss-snapshot-local repository on oss.jfrog.org exists and which properties it contains
 //Run this by executing 'groovy ojo.groovy'
 def swing = new SwingBuilder()
+
 def panel = {
      swing.panel() {
         label("Please enter the desired path")
@@ -16,13 +18,32 @@ swing.edt {
 	//def password = "your password (if needed)"
 	def baseURL = "http://oss.jfrog.org/artifactory/api/storage/oss-snapshot-local/"
 
-  frame(title: 'OJO path checker', size: [800, 200], show: true) {
+  frame(title: 'OJO path checker', size: [800, 200], show: true,defaultCloseOperation:javax.swing.WindowConstants.EXIT_ON_CLOSE) {
     borderLayout()
     def input = textField(columns:10, actionPerformed: {}, constraints:BL.NORTH)
+
+
     def output = label(text: '', preferredSize: [100, 100], constraints: BL.SOUTH)
 	  def checkPath = button(text:'Check Path', actionPerformed: {def path = "curl ${baseURL}${input.text}".execute().text; println path; output.text = "<html>Searching OJO for path: ${input.text}<br><br>${path}<html>"}, constraints:BL.WEST)
     def checkProps = button(text:'Check properties', actionPerformed: {def props = "curl ${baseURL}${input.text}?properties".execute().text; println props; output.text="<html>Searching OJO for properties on path: ${input.text}<br><br>${props}<html>"}, constraints:BL.EAST)
+    input.addKeyListener(new KeyListener(){
+    @Override
+    public void keyPressed(KeyEvent e){
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+        e.consume()
+        checkPath.doClick();
+        }
+    }
+        @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+})
     widget(panel())
   }
   
 }
+
