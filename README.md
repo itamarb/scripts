@@ -1,3 +1,3 @@
 # scripts
 
-[ ![Bintray](https://img.shields.io/bintray/v/asciidoctor/maven/asciidoctorj.svg) ](https://bintray.com/itamarb/maven/include/_latestVersion)
+ [ ![Download](https://api.bintray.com/packages/bitman30/generic/test/images/download.svg) ](https://bintray.com/bitman30/generic/test/_latestVersion)
