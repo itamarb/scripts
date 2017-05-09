@@ -102,16 +102,6 @@ fi
 
 }
 
-function splitFile {
-	it=1
-	mkdir working
-	filename="paths.txt"
-	while read p; do
-	echo $p >> working/$it.txt
-	((it+=1))
-	done < $filename
-}
-
 #Execute methods
 wgetFromPath
 filter
