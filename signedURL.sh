@@ -83,7 +83,7 @@ fi
 echo -e ${BLUE}Uploading $file${NC}
 echo ""
 echo ""
-curl -X PUT -u$user:$pass "https://api.bintray.com/content/jfrog-int/$repo/$package/$version/$file?publish=1"
+curl -T $file -u$user:$pass "https://api.bintray.com/content/jfrog-int/$repo/$package/$version/$file?publish=1"
 
 echo ""
 echo ""
