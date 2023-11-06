@@ -1,3 +1,3 @@
-# Artifactory Repository Tree parser
+# Artifactory Repository Tree Parser
 
 README
